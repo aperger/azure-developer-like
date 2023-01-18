@@ -74,5 +74,4 @@ public class FormController {
 	private UserFeedback map(Form form, String userId) {
 		return new UserFeedback(userId, form.getTitle(), form.getComment());
 	}
-
 }
