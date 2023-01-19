@@ -30,12 +30,13 @@ public class FormController {
 	@GetMapping("/")
 	public String greetingForm(Model model, OAuth2AuthenticationToken auth) {
 		Iterable<UserFeedback> feedbacks = repository.findAll();
-
+		String sas = fileService.getSas("raw-images");
 		model.addAttribute("form", new Form());
 		model.addAttribute("appTitle", appTitle);
 		model.addAttribute("userName", auth.getName());
 		model.addAttribute("feedbacks", feedbacks);
 		model.addAttribute("message", null);
+		model.addAttribute("sas", sas);
 		return "form";
 	}
 
